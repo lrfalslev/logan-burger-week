@@ -12,9 +12,10 @@
 </svelte:head>
 
 <ModeWatcher />
-<div class="min-h-screen">
+
+<div class="flex flex-col h-screen">
     <Navbar />
-    <main class="p-4">
+    <main class="flex flex-1 items-center justify-center overflow-y-auto bg-secondary">
         {@render children()}
     </main>
 </div>

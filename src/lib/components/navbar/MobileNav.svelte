@@ -16,7 +16,9 @@
 
     <nav class="flex flex-col gap-2 p-2 pt-12">
         {#each navLinks as { title, href }}
-            <a {href} class={buttonVariants({ variant: "outline" })}>{title}</a>
+          <Sheet.Close class={buttonVariants({ variant: "outline" })} onclick={() => { window.location.href = href; }}>
+            {title}
+          </Sheet.Close>
         {/each}
     </nav>
 
