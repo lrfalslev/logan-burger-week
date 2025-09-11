@@ -11,7 +11,7 @@
     <div class="w-2/3 h-full flex items-center justify-center pr-2 text-center">
         <div>
             <h1 class="text-2xl md:text-6xl font-extrabold mb-2">
-                Logan Burger Week!
+                Logan Burger Week
             </h1>
             <p class="text-xl md:text-3xl font-semibold text-yellow-500 mb-8">
                 July 7-13, 2025
@@ -21,9 +21,24 @@
             </h1>
             <p class="md:text-xl max-w-xl mx-auto">
                 10 restaurants.<br> 
-                10 exclusive creations.<br>  
-                7 days of flavor in the heart of Logan.
+                10 exclusive creations.<br>
+                7 days of flavor in Cache Valley.
             </p>
+            
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <a
+                        href="/burgers"
+                        class="bg-yellow-500 text-black font-semibold px-6 py-3 rounded-lg shadow hover:bg-yellow-600 transition"
+                    >
+                        Explore The Burgers
+                    </a>
+                    <a
+                        href=""
+                        class="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-900 transition"
+                    >
+                        Login
+                    </a>
+                </div>
         </div>
     </div>
 </section>

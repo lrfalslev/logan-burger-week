@@ -38,7 +38,7 @@
     ];
 </script>
 
-<div class="h-full overflow-y-auto p-3 pb-8">
+<div class="h-full overflow-y-auto p-3 md:pb-8">
     <div class="text-center mb-8">
         <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-500 tracking-tight">
             Meet the Burgers
@@ -46,7 +46,7 @@
         <div class="mt-2 h-1 w-24 bg-yellow-500 mx-auto rounded-full"></div>
         <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
             Each restaurant is serving up something bold, juicy, and unforgettable.  
-            Explore the lineup and plan your burger crawl.
+            Explore the lineup and plan your week.
         </p>
     </div>
 

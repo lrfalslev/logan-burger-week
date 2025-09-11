@@ -3,8 +3,8 @@
   import { Button } from "$lib/components/ui/button";
   import { buttonVariants } from "$lib/components/ui/button/index.js";
   import { MoonIcon, SunIcon, UserIcon, HamburgerIcon } from "@lucide/svelte";
-  import { toggleMode } from "mode-watcher";    
-  import { page } from '$app/state'; // ✅ reactive in runes mode
+  import { toggleMode, mode } from "mode-watcher";    
+  import { page } from '$app/state';
 
   let { navLinks }: { navLinks: { title: string; href: string; description?: string }[] } = $props();
 </script>
@@ -35,10 +35,12 @@
         </Button>
         <Button onclick={toggleMode} variant="outline" class="w-full justify-center">
             <span class="flex">
-                <SunIcon class="dark:scale-0" />
-                <MoonIcon class="absolute scale-0 dark:scale-100" />
+                <SunIcon class="scale-0 dark:scale-100" />
+                <MoonIcon class="absolute dark:scale-0" />
             </span>
-            <span class="ml-2">Toggle Dark Mode</span>
+            <span class="ml-2">
+              {mode.current === 'dark' ? 'Light Mode' : 'Dark Mode'}
+            </span>
         </Button>
     </Sheet.Footer>
 

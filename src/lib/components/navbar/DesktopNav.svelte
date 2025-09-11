@@ -5,7 +5,7 @@
   import SunIcon from "@lucide/svelte/icons/sun";
   import MoonIcon from "@lucide/svelte/icons/moon";
   import { page } from '$app/state';
-  import { toggleMode } from "mode-watcher";
+  import { toggleMode, mode } from "mode-watcher";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Popover from "$lib/components/ui/popover/index.js";
 
@@ -38,10 +38,12 @@
 
               <Button onclick={toggleMode} variant="outline" class="w-full justify-center">
                   <span class="flex">
-                      <SunIcon class="dark:scale-0" />
-                      <MoonIcon class="absolute scale-0 dark:scale-100" />
+                      <SunIcon class="scale-0 dark:scale-100" />
+                      <MoonIcon class="absolute dark:scale-0" />
                   </span>
-                  <span class="ml-2">Toggle Dark Mode</span>
+                  <span class="ml-2">
+                    {mode.current === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                  </span>
               </Button>
           </Popover.Content>
       </Popover.Root>
