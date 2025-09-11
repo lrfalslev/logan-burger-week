@@ -15,7 +15,7 @@
 
 <div class="flex flex-col h-screen">
     <Navbar />
-    <main class="flex flex-1 items-center justify-center overflow-y-auto bg-secondary">
+    <main class="flex flex-1 items-center justify-center overflow-y-auto">
         {@render children()}
     </main>
 </div>
