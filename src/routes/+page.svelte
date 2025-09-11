@@ -1,4 +1,4 @@
-<section class="flex h-full w-full md:w-2/3">
+<section class="flex h-full w-full md:w-2/3 lg:px-20">
 
     <div class="w-1/3 h-full overflow-y-hidden">
         <img
