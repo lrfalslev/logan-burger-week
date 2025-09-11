@@ -27,7 +27,7 @@
 </script>
 
 <nav class="flex items-center justify-between p-4 border-b border-yellow-800">
-    <a href="/" class="text-xl font-bold">Logan Burger Week</a>
+    <a href="/" class="text-xl font-bold text-yellow-500">Logan Burger Week</a>
 
     <div class="hidden md:block">
         <DesktopNav {navLinks} />

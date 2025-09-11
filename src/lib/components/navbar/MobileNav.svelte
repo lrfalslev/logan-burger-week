@@ -1,23 +1,29 @@
 <script lang="ts">
-    import * as Sheet from "$lib/components/ui/sheet";
-    import { Button } from "$lib/components/ui/button";
-    import { buttonVariants } from "$lib/components/ui/button/index.js";
-    import { MoonIcon, SunIcon, UserIcon, HamburgerIcon } from "@lucide/svelte";
-    import { toggleMode } from "mode-watcher";
+  import * as Sheet from "$lib/components/ui/sheet";
+  import { Button } from "$lib/components/ui/button";
+  import { buttonVariants } from "$lib/components/ui/button/index.js";
+  import { MoonIcon, SunIcon, UserIcon, HamburgerIcon } from "@lucide/svelte";
+  import { toggleMode } from "mode-watcher";    
+  import { page } from '$app/state'; // ✅ reactive in runes mode
 
-    let { navLinks }: { navLinks: { title: string; href: string; description?: string }[] } = $props();
+  let { navLinks }: { navLinks: { title: string; href: string; description?: string }[] } = $props();
 </script>
 
 <Sheet.Root>
+
   <Sheet.Trigger class={buttonVariants({ variant: "outline" })}>
     <HamburgerIcon />
   </Sheet.Trigger>
+
   <Sheet.Content side="right">
 
     <nav class="flex flex-col gap-2 p-2 pt-12">
         {#each navLinks as { title, href }}
-          <Sheet.Close class={buttonVariants({ variant: "outline" })} onclick={() => { window.location.href = href; }}>
-            {title}
+          <Sheet.Close
+              class={`${buttonVariants({ variant: "outline" })} ${page.url.pathname === href ? 'text-yellow-500' : ''}`}
+              onclick={() => { window.location.href = href; }}
+          >
+              {title}
           </Sheet.Close>
         {/each}
     </nav>
@@ -35,6 +41,6 @@
             <span class="ml-2">Toggle Dark Mode</span>
         </Button>
     </Sheet.Footer>
-    
+
   </Sheet.Content>
 </Sheet.Root>

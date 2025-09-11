@@ -16,12 +16,13 @@
             <p class="text-xl md:text-3xl font-semibold text-yellow-500 mb-8">
                 July 7-13, 2025
             </p>
-            <h1 class="text-xl md:text-4xl font-bold mb-4">
+            <h1 class="text-xl md:text-4xl mb-4 tracking-tighter font-semibold">
                 One Week. Endless Burgers.
             </h1>
-            <p class="text-lg md:text-2xl max-w-xl mx-auto">
-                10 restaurants. 10 exclusive creations.  
-                7 days of flavor-packed fun in the heart of Logan.
+            <p class="md:text-xl max-w-xl mx-auto">
+                10 restaurants.<br> 
+                10 exclusive creations.<br>  
+                7 days of flavor in the heart of Logan.
             </p>
         </div>
     </div>

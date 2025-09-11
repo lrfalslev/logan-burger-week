@@ -2,21 +2,21 @@
   import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
   import SettingsIcon from "@lucide/svelte/icons/settings";
   import UserIcon from "@lucide/svelte/icons/user-round";
-    import SunIcon from "@lucide/svelte/icons/sun";
-    import MoonIcon from "@lucide/svelte/icons/moon";
+  import SunIcon from "@lucide/svelte/icons/sun";
+  import MoonIcon from "@lucide/svelte/icons/moon";
+  import { page } from '$app/state';
+  import { toggleMode } from "mode-watcher";
+  import { Button } from "$lib/components/ui/button/index.js";
+  import * as Popover from "$lib/components/ui/popover/index.js";
 
-    import { toggleMode } from "mode-watcher";
-    import { Button } from "$lib/components/ui/button/index.js";
-    import * as Popover from "$lib/components/ui/popover/index.js";
-
-  let { navLinks }: { navLinks: { title: string; href: string; description?: string }[] } = $props();
+  let { navLinks }: { navLinks: { title: string; href: string }[] } = $props();
 </script>
 
 <NavigationMenu.Root viewport={false}>
   <NavigationMenu.List>
-    {#each navLinks as { title, href, description }}
+    {#each navLinks as { title, href }}
       <NavigationMenu.Item>
-          <NavigationMenu.Link {href} title={description}>
+          <NavigationMenu.Link {href} data-active={page.url.pathname === href}>
               {title}
           </NavigationMenu.Link>
       </NavigationMenu.Item>
@@ -46,6 +46,6 @@
           </Popover.Content>
       </Popover.Root>
   </NavigationMenu.Item>
-  
+
   </NavigationMenu.List>
 </NavigationMenu.Root>
