@@ -16,10 +16,6 @@
             href: "/burgers"
         },
         {
-            title: "F.A.Q.",
-            href: "/faq"
-        },
-        {
             title: "Contact",
             href: "/contact"
         }

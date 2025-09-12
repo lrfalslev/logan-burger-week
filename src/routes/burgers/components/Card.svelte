@@ -30,20 +30,20 @@
         window.open(url, "_blank");
     }  
     
-    let tilt = (Math.random() * 4 - 2).toFixed(2);
-    let nameTilt = (Math.random() * 4 - 2).toFixed(2);
+    let burgerTilt = (Math.random() * 4 - 2).toFixed(2);
+    let restaurantTilt = (Math.random() * 4 - 2).toFixed(2);
 </script>
 
 <Card.Root class="w-full max-w-sm border border-yellow-800">
 
   <Card.Header class="text-center">
     <Card.Title class="font-extrabold text-3xl tracking-wide text-yellow-500">
-        <span class="inline-block" style={`transform: rotate(${nameTilt}deg);`}>
+        <span class="inline-block" style={`transform: rotate(${restaurantTilt}deg);`}>
             {props.restaurantName}
         </span>
         <span class="text-foreground text-sm font-normal tracking-tighter">presents the:</span>
     </Card.Title>
-    <Card.Title class="font-bold text-xl underline decoration-yellow-500" style={`transform: rotate(${tilt}deg);`}>{props.burgerName}</Card.Title>
+    <Card.Title class="font-bold text-xl underline decoration-yellow-500" style={`transform: rotate(${burgerTilt}deg);`}>{props.burgerName}</Card.Title>
   </Card.Header>
 
   <Card.Content>
@@ -57,7 +57,7 @@
         <Tooltip.Provider>
             <Tooltip.Root>
                 <Tooltip.Trigger>
-                    <Button class="bg-gray-400 dark:bg-white hover:bg-yellow-500 cursor-pointer" onclick={openMaps}>
+                    <Button class="bg-yellow-500 text-black font-bold py-2 px-4 rounded hover:bg-yellow-600 cursor-pointer" onclick={openMaps}>
                         <CompassIcon />
                     </Button>
                 </Tooltip.Trigger>

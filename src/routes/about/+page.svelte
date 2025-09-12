@@ -1,7 +1,7 @@
 <section class="flex flex-col md:flex-row w-full max-w-6xl px-5 py-8 gap-8">
     
     <div class="md:w-1/2 flex flex-col justify-center text-center md:text-left">
-        <h1 class="text-3xl md:text-5xl font-extrabold mb-4 text-yellow-500">
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-4 text-yellow-500 tracking-tight">
             What's Burger Week?
         </h1>
         <p class="text-lg md:text-xl text-foreground mb-6 leading-relaxed">
