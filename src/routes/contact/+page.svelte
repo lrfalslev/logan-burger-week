@@ -1,8 +1,22 @@
 <script lang="ts">
-    const WEB3FORMS_URL = "https://api.web3forms.com/submit";
-    const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+  import { page } from '$app/state';
+  import { onMount } from 'svelte';
+  import { AlertType, showAlert } from '$lib/stores/alert';
 
-    let tilt = (Math.random() * 4 - 2).toFixed(2);
+  let showSuccess = false;
+
+  onMount(() => {
+    const query = page.url.searchParams;
+    if (query.get('sent') === 'true') {
+      showSuccess = true;
+      
+      showAlert(
+        'Message Sent',
+        "Thanks for reaching out. We'll be in touch soon.",
+        AlertType.Success
+      );
+    }
+  });
 </script>
 
 <section class="flex flex-col md:flex-row w-full max-w-6xl mx-auto px-4 py-12 gap-8 items-center">
@@ -39,27 +53,30 @@
   <div class="w-full md:flex-1 bg-muted rounded-lg p-8 shadow-lg">
     <h2 class="text-2xl font-bold text-yellow-500">Contact Us</h2>
     <p class="text-xl font-thin mb-4">info@loganburgerweek.com</p>
-    <form action={WEB3FORMS_URL} method="POST" class="space-y-4">
-      <input type="hidden" name="access_key" value={ACCESS_KEY} />
+    
+    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+        <input type="hidden" name="access_key" value="d19afb13-21a8-4789-8218-cde9da04b3cb">
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        <input type="hidden" name="redirect" value="https://loganburgerweek.com/contact?sent=true">
 
-      <div>
-        <label for="name" class="block mb-1 font-semibold">Name</label>
-        <input id="name" type="text" name="name" required class="w-full border rounded p-2" />
-      </div>
+        <div>
+          <label for="name" class="block mb-1 font-semibold">Name</label>
+          <input id="name" type="text" name="name" required class="w-full border rounded p-2" />
+        </div>
 
-      <div>
-        <label for="email" class="block mb-1 font-semibold">Email</label>
-        <input id="email" type="email" name="email" required class="w-full border rounded p-2" />
-      </div>
+        <div>
+          <label for="email" class="block mb-1 font-semibold">Email</label>
+          <input id="email" type="email" name="email" required class="w-full border rounded p-2" />
+        </div>
 
-      <div>
-        <label for="message" class="block mb-1 font-semibold">Message</label>
-        <textarea id="message" name="message" rows="5" required class="w-full border rounded p-2"></textarea>
-      </div>
-
-      <button type="submit" class="ml-auto block bg-yellow-500 text-black font-bold py-2 px-4 rounded hover:bg-yellow-600 cursor-pointer">
-        Send Message
-      </button>
+        <div>
+          <label for="message" class="block mb-1 font-semibold">Message</label>
+          <textarea id="message" name="message" rows="5" required class="w-full border rounded p-2"></textarea>
+        </div>
+        
+        <button type="submit" class="ml-auto block bg-yellow-500 text-black font-bold py-2 px-4 rounded hover:bg-yellow-600 cursor-pointer">
+          Send Message
+        </button>
     </form>
   </div>
 </section>
