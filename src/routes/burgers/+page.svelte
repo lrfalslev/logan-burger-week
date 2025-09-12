@@ -40,7 +40,7 @@
 
 <div class="h-full overflow-y-auto p-3 md:pb-8">
     <div class="text-center mb-8">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-500 tracking-tight" style="transform: rotate(-3deg)">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-500 tracking-tight">
             Meet the Burgers
         </h1>
         <div class="h-1 w-24 bg-yellow-500 mx-auto rounded-full"></div>
