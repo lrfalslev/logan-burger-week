@@ -14,6 +14,8 @@
     import * as Card from "$lib/components/ui/card/index.js";
     import * as Tooltip from "$lib/components/ui/tooltip/index.js";
     import { CompassIcon } from "@lucide/svelte";
+    import { Skeleton } from "$lib/components/ui/skeleton/index.js";
+    import { slide } from "svelte/transition";
 
     export let props: BurgerCardProps;
 
@@ -32,6 +34,8 @@
     
     let burgerTilt = (Math.random() * 4 - 2).toFixed(2);
     let restaurantTilt = (Math.random() * 4 - 2).toFixed(2);
+    
+    let imageLoaded = false;
 </script>
 
 <Card.Root class="w-full max-w-sm border border-yellow-800">
@@ -47,7 +51,17 @@
   </Card.Header>
 
   <Card.Content>
-    <img src={props.imageUrl} alt={props.burgerName}/>
+    {#if !imageLoaded}
+        <Skeleton class="w-full h-64 rounded-lg" />
+    {/if}
+    
+    <img 
+      src={props.imageUrl}
+      alt={props.burgerName}
+      class:hidden={!imageLoaded}
+      onload={() => (imageLoaded = true)} 
+    />
+    
     <Card.Description class="pt-2">{props.burgerDescription}</Card.Description>
   </Card.Content>
 
