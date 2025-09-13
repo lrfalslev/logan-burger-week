@@ -1,16 +1,17 @@
-<script lang="ts">
-    import { Hanko } from "@teamhanko/hanko-elements";
-    import { goto } from "$app/navigation";
+<script context="module" lang="ts">
+    import { goto, invalidateAll } from "$app/navigation";
     import { env } from "$env/dynamic/public";
+
     const hankoApi = env.PUBLIC_HANKO_API_URL;
-  
-    const hanko = new Hanko(hankoApi);
-    const logout = () => {
-      hanko.logout().catch((error) => {
-        //Handle Error
-      });
-      goto("/")//Path to redirect the user to
-    };
+    let hanko: any;
+
+    export async function logout() {
+        if (!hanko) {
+            const { Hanko } = await import("@teamhanko/hanko-elements");
+            hanko = new Hanko(hankoApi);
+        }
+        await hanko.logout().catch(console.error);
+        await invalidateAll();
+        goto("/");
+    }
 </script>
-  
-<button onclick={logout}>Logout</button>

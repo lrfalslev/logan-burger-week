@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from '$app/state';
     import { EVENT_RANGE_STRING } from '$lib/constants';
 </script>
 
@@ -36,12 +37,21 @@
                     >
                         Explore The Burgers
                     </a>
-                    <a
-                        href="/hanko/login"
-                        class="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-900 transition"
-                    >
-                        Login
-                    </a>
+                    {#if page.data.user}
+                        <a
+                            href="/passport"
+                            class="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-900 transition"
+                        >
+                            My Passport
+                        </a>
+                    {:else}
+                        <a
+                            href="/hanko/login"
+                            class="bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-900 transition"
+                        >
+                            Login
+                        </a>
+                    {/if}
                 </div>
         </div>
     </div>

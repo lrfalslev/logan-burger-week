@@ -8,6 +8,7 @@
   import { toggleMode, mode } from "mode-watcher";
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Popover from "$lib/components/ui/popover/index.js";
+    import { logout } from "../hanko/HankoLogout.svelte";
 
   let { navLinks }: { navLinks: { title: string; href: string }[] } = $props();
 </script>
@@ -31,12 +32,20 @@
           </Popover.Trigger>
 
           <Popover.Content align="end" class="w-56 p-2 flex flex-col gap-2">
-              <Button variant="outline" class="w-full justify-center">
-                  <UserIcon />
-                  <span class="ml-2">Login</span>
-              </Button>
-
-              <Button onclick={toggleMode} variant="outline" class="w-full justify-center">
+                {#if page.data.user}
+                  <Button variant="outline" class="w-full justify-center cursor-pointer" onclick={logout}>
+                    <UserIcon />
+                    <span class="ml-2">Logout</span>
+                  </Button>
+                {:else}
+                  <a href="/hanko/login">
+                    <Button variant="outline" class="w-full justify-center cursor-pointer">
+                        <UserIcon />
+                        <span class="ml-2">Login</span>
+                    </Button>
+                  </a>
+                {/if}
+              <Button onclick={toggleMode} variant="outline" class="w-full justify-center cursor-pointer">
                   <span class="flex">
                       <SunIcon class="scale-0 dark:scale-100" />
                       <MoonIcon class="absolute dark:scale-0" />

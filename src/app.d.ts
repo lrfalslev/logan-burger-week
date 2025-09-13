@@ -3,7 +3,17 @@
 declare global {
 	namespace App {
 		// interface Error {}
-		// interface Locals {}
+        interface Locals {
+            user?: {
+                subject: string; // Hanko user ID
+                email?: {
+                    address: string;
+                    is_verified: boolean;
+                };
+                // Add any other claims you expect from Hanko here
+                [key: string]: unknown;
+            } | null;
+        }
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}

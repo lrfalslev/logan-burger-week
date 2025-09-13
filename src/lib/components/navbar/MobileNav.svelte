@@ -5,6 +5,7 @@
   import { MoonIcon, SunIcon, UserIcon, HamburgerIcon } from "@lucide/svelte";
   import { toggleMode, mode } from "mode-watcher";    
   import { page } from '$app/state';
+  import { logout } from "../hanko/HankoLogout.svelte";
 
   let { navLinks }: { navLinks: { title: string; href: string; description?: string }[] } = $props();
 </script>
@@ -29,10 +30,19 @@
     </nav>
 
     <Sheet.Footer>
-        <Button variant="outline">
+        {#if page.data.user}
+          <Button variant="outline" onclick={logout}>
             <UserIcon />
-            <span class="ml-2">Login</span>
-        </Button>
+            <span class="ml-2">Logout</span>
+          </Button>
+        {:else}
+          <a href="/hanko/login" class="w-full">
+            <Button variant="outline" class="w-full">
+                <UserIcon />
+                <span class="ml-2">Login</span>
+            </Button>
+          </a>
+        {/if}
         <Button onclick={toggleMode} variant="outline" class="w-full justify-center">
             <span class="flex">
                 <SunIcon class="scale-0 dark:scale-100" />
